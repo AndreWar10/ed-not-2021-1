@@ -140,11 +140,12 @@ const densidade = (a, p) => parseFloat(p / a)
 console.log()
 console.log('3)')
 
+//Percorrer o vetor com for tradicional e chamada de arrow function
 for(let i =0; i < estadosNe.length; i++) {
     x = 0
-    x = densidade(estadosNe[i].area, estadosNe[i].populacao)
-    estadosNe[i]['densidade demográfica'] = x
-    delete estadosNe[i].sigla
+    x = densidade(estadosNe[i].area, estadosNe[i].populacao) // parametros que serão calculados (area e população).
+    estadosNe[i]['densidade demográfica'] = x  //inserindo a propriedade densidade demográfica no vetor estadosNe.
+    delete estadosNe[i].sigla  //retirando a propriedade sigla do vetor estadosNe.
     console.log(i, estadosNe[i])
 }
 
@@ -165,7 +166,7 @@ const objeto = (x) => { for(let atrib in x) {  //função executa o for..in com 
       invoque a função escrita em 4) para exibi-lo. 
 */
 
-//A cada objeto do vetor, a função objeto() será invocada. Listando as propriedades do objeto.
+//A cada objeto do vetor, a função objeto() será invocada. Listando as propriedades do objeto no terminal.
 for(let x of estadosNe) { 
     objeto(x)
 }
@@ -185,3 +186,31 @@ let vet = []
          já existentes, e assim por diante.
 
 */
+
+   /*
+   Sergipe
+   Alagoas
+   Rio Grande do Norte
+   Paraíba
+   Pernambuco
+   Ceará
+   Piauí
+   Maranhão
+   Bahia
+   */
+
+//Inserção de vetores em ordem alfabética.    
+vet.push('Sergipe') //final do vetor
+vet.unshift('Alagoas') //início de vetor (posição 0).
+vet.splice(1, 0, 'Rio Grande do Norte') //2º posição
+vet.splice(1, 0, 'Paraíba') //Deve entrar na 2º posição, jogando o splice() acima para a 3º
+vet.splice(2, 0, 'Pernambuco')
+vet.splice(1, 0, 'Ceará')
+vet.splice(4, 0, 'Piauí')
+vet.splice(2, 0, 'Maranhão')
+vet.splice(1, 0, 'Bahia')
+
+//Inserção múltipla com splice(): PORÉM o exercício pede UM DE CADA VEZ.
+//vet.splice(1, 0, 'Bahia', 'Ceará', 'Maranhão', 'Paraíba', 'Pernanbuco', 'Piauí', 'Rio Grande do Norte')
+
+//console.log(vet)
