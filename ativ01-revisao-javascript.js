@@ -1,5 +1,7 @@
 /*
 
+ANDRÉ GUERRA SANTOS
+
    DADOS PARA O EXERCÍCIO
 
    nome;sigla;area;populacao 
@@ -113,7 +115,9 @@ let estado9 = {
 
 estadosNe.push(estado9)
 
-console.log(estadosNe)
+//vetor estadosNe agora possui 9 objetos{}.
+
+//console.log(estadosNe)
 
 /*
    2) Escreva uma arrow function que receba dois parâmetros, área e população, e
@@ -121,13 +125,9 @@ console.log(estadosNe)
       segunda pela primeira. 
 */
 
-//let area = 'area'
-//console.log(estado1[area])
-//let pop = 'populacao'    
+//Arrow function para calcular a densidade demografica, dividindo o 2 parametro pelo 1.
+const densidade = (a, p) => parseFloat(p / a) 
 
-const densidade = (a, p) => parseFloat(p / a)
-
-//console.log('dddddddddddddddddddddddddddddddddddddddddddddddddddddddd')
 /*
    3) Percorra o vetor estadosNe usando um for tradicional. Para cada estado,
       chame a arrow function criada em 2) e efetue o cálculo correspondente.
@@ -154,31 +154,29 @@ for(let i =0; i < estadosNe.length; i++) {
 */
 console.log()
 console.log('4)')
+//console.log(estadosNe)
 
-const objeto = obj => {
-let vetor = 0
-    for(let atrib in vetor) {
-    console.log(atrib + ' -> ' + vetor[atrib])
+//arrow function que recebe objeto {} 
+const objeto = (x) => { for(let atrib in x) {  //função executa o for..in com o parametro(objeto) que será denominado no for..of
+    console.log(atrib + ' -> ' + x[atrib]) }   //listar propriedades e valores de um objeto 
 }
+
+ /*5) Percorra o vetor estadosNe usando for..of. Para cada objeto no vetor,
+      invoque a função escrita em 4) para exibi-lo. 
+*/
+
+//A cada objeto do vetor, a função objeto() será invocada. Listando as propriedades do objeto.
+for(let x of estadosNe) { 
+    objeto(x)
 }
 
-for(let x of estadosNe) {
-    //i = estadosNe[x]
-     objeto(estadosNe)
-    //console.log(i, estadosNe[i])
-    //console.log(i)    
-    //console.log(x, i)
-    //x++
-}
-/* 5) Percorra o vetor estadosNe usando for..of. Para cada objeto no vetor,
-      invoque a função escrita em 4) para exibi-lo.
-
-
-    
-/*
-   6)
+  /* 6)
       a) Declare um vetor vazio.
-      b) Insira no vetor criado no item a) apenas o nome de cada Estado, conforme
+*/
+
+let vet = []
+
+  /*    b) Insira no vetor criado no item a) apenas o nome de cada Estado, conforme
          os dados no topo deste arquivo, um de cada vez. Faça as inserções de 
          modo que o vetor final esteja em ordem alfabética. No caso, o primeiro 
          Estado (Sergipe), pode ser inserido com push(), mas o segundo (Alagoas)
