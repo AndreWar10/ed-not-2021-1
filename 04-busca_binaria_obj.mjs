@@ -62,13 +62,13 @@ const comparaNome = (obj, busca = 'FAUSTO') => {
 }
 
 //NÃO DA PRA BUSCAR OUTROS ATRIB, APENAS O PRIMEIRO, ESTÁ NA ORDEM FISRT NAME
-console.time('Buscando AARAO')
-console.log(buscaBinaria(objNomes,(obj, busca = 'AARAO')=> {
+console.time('Buscando ROSIANE')
+console.log(buscaBinaria(objNomes,(obj, busca = 'ROSIANE')=> {
     if(busca === obj.first_name) return 0 //comparando a letra em relação a tabelas ASCII
     else if(busca < obj.first_name) return -1
     else return 1
 }), {comps} )  //>=0 (retornar se existe ou não a informação)
-console.timeEnd('Buscando AARAO')
+console.timeEnd('Buscando ROSIANE')
 
 console.time('Buscando LAMARA')
 console.log(buscaBinaria(objNomes,(obj, busca = 'LAMARA')=> {
