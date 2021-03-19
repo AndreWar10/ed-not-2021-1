@@ -40,5 +40,6 @@ import {candidatos} from './includes/candidatos-2018.mjs'
     // Ordenando pelo nome de urna (NM)URNA_CANDIDATO)
     selectionSort(candidatos, (obj1, obj2) => obj1.NM_URNA_CANDIDATO > obj2.NM_URNA_CANDIDATO)
     console.timeEnd('Ordenando candidatos...')
+    let memoria = process.memoryUsage().heapUsed / 1024 / 1024 //Dividi 1024 para converter de giga>kylo>mega
     console.log('DEPOIS:', candidatos)
-    console.log({trocas, pass, comps})
+    console.log({trocas, pass, comps, memoria})
