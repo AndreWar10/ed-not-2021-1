@@ -26,3 +26,16 @@ function fatorial2(n){
 console.log(fatorial2(5))
 console.log(fatorial2(4))
 
+
+
+
+
+let num1 = 5;
+var resultado = num1;
+for (let i = 1; i < num1; i++) {
+    resultado *= i;
+}
+console.log(resultado);
+
+
+
