@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+     /*
+     
+/*let num1 = 5;
+let num2 = 10;
+let maior
+let menor
+//maior
+if(num1 > num2){
+    maior = num1
+    menor = num2
+}
+else {
+    maior = num2
+    menor = num1
+}    
+
+var resultado = 0;
+console.log({menor}, {maior})
+for (let i = menor; i <= maior; i++) {
+    console.log({i})
+    console.log({resultado}, '+', i)
+    resultado += i;
+      
+}
+console.log({resultado});
+*/
+
+          
+
+let  maior, menor
+let num1, num2
+
+do {
+    num1 = Number(prompt("Digite um numero para somar(ou 0 para terminar):"))
+    num2 = Number(prompt("Digite um numero para somar(ou 0 para terminar):"))
+
+    if(!isNaN(num1) || !isNaN(num2)){
+        if(num1 > num2){
+        maior = num1
+        menor = num2
+        }
+        else {
+            maior = num2
+            menor = num1
+        }    
+
+    }
+
+    } while(num1 === num2)
+
+document.write(`${maior} ${menor}`)
+
+//maior || num1 != num2
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html> 
+
+
+
+
+
