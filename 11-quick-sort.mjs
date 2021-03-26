@@ -41,17 +41,9 @@ function quickSort(vetor, ini = 0, fim = vetor.length - 1){
 }
 }
 
-//let nums = [7, 4, 9, 0, 6, 1, 8, 2, 5, 3]
 
-/*trocas = 0, comps = 0, pass=0
-let nums = [7, 4, 9, 0, 6, 1, 8, 2, 5, 3]
-quickSort(nums)
-console.log(nums)
-console.log({trocas,comps,pass})
-*/
-
-trocas = 0, comps = 0, pass=0
 import { nomes } from './includes/100-mil-nomes.mjs'
+trocas = 0, comps = 0, pass=0
 
 console.time('Ordenando nomes...')
 quickSort(nomes)
