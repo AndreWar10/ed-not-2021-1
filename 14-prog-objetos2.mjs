@@ -19,17 +19,13 @@ class FormaGeometrica {
     //impede que o objeto seja criado.
     
     //método constructor
-    constructor(base, altura, tipo){
+    constructor(base, altura, tipo){ // colocar os valores iniciais do objeto, BASICAMENTE
 
-        //base deve ser numerica e seu valor maior que zero    
-        if(isNaN(base) || base <=0) throw new Error(' A base deve ser numérica e seu valor maior do que zero.')
+        //Invocar os setters das propriedades. As validações serão feitas no próprio setter
+        this.base = base
+        this.altura = altura 
+        this.tipo = tipo
         
-        //altura deve ser numerica e seu valor maior que zero  
-        if(isNaN(altura) || altura <=0) throw new Error(' A altura deve ser numérica e seu valor maior do que zero.')
-
-        //Tipo
-        //if tipo(tipo !== 'Q' &&  tipo !== 'T' && tipo !== 'E' && ) OU
-        if(!['Q','T','E'].includes(tipo)) throw new Error(' O tipo deve ser Q, T ou E.')
 
         //Se chagamos até aqui, podemos prosseguir com a criação do objeto.
 
@@ -48,14 +44,93 @@ class FormaGeometrica {
         this.tipo = tipo   
         */
 
+        /*
         // ATRIBUTOS PRIVADOS: só podem ser acessados e modificados dentro da classe. (#)
         this.#base = base //atrib privado
         this.#altura = altura
         this.#tipo = tipo   
+        */
 
-        console.log('Interno:', this)
+        //Selando o objeto: Isso impede que novos atributos públicos sejam adicionados ao objeto após sua criação
+        Object.seal(this) //Fechando o objeto de modo que nada possa ser acrescentado
+
+        //console.log('Interno:', this)
     }
-}
+
+        /*
+        getters: métodos especiais que permitem expor o valor dos atributos privados de forma somente leitura, sem permitir sua modificação.
+        */
+        get base() {
+            return this.#base
+        }
+        
+        get altura() {
+            return this.#altura
+        }
+        
+        get tipo() {
+            return this.#tipo
+        }
+
+        /*
+        ***************************************************************************************************
+        PROPRIEDADE CALCULADA: Não retorna um valor armazenado em um atributo privado. Em vez disso, calcula "ao vivo" 
+        um valor e o retorna
+        */
+        get area(){
+            switch(this.tipo){
+                case 'Q':
+                    return this.base * this.altura
+                case 'T':
+                    return this.base * this.altura / 2
+                case 'E':
+                    return (this.base/2) * (this.altura/2) * Math.PI  
+            }
+        }
+
+        /*
+            setters: permitem que o mundo externo possa alterar o valor de atributos provados, caso o novo valor esteja
+            de acordo com as regras de negócio. (TIPO UM PORTEIRO)
+        */
+        set base(valor){
+           //base deve ser numerica e seu valor maior que zero    
+            if(isNaN(valor) || valor <=0) throw new Error(' A base deve ser numérica e seu valor maior do que zero.')
+
+            this.#base = valor //O atributo base recebe o novo valor VALIDADO
+        } 
+
+        set altura(valor){
+           //altura deve ser numerica e seu valor maior que zero  
+            if(isNaN(valor) || valor <=0) throw new Error(' A altura deve ser numérica e seu valor maior do que zero.')
+
+            this.#altura = valor
+        }
+
+        set tipo(valor){
+            //if tipo(tipo !== 'Q' &&  valor !== 'T' && tipo !== 'E' && ) OU
+            if(!['Q','T','E'].includes(valor)) throw new Error(' O tipo deve ser Q, T ou E.')
+
+            this.#tipo = valor
+        }
+
+    /*
+        Quando um atributo tem pelomenos um getter ou um setter associado a ele, passamos a nos referir a ele como PROPRIEDADE do obejto
+    */
+
+    //**************************************************************************************************************************** */
+    //Funções, dentro de classes, passam a ser denominadas MÉTODOS e perdem a palavra function
+    calcularArea(){
+        switch(this.tipo){
+            case 'Q':
+                return this.base * this.altura
+            case 'T':
+                return this.base * this.altura / 2
+            case 'E':
+                return (this.base/2) * (this.altura/2) * Math.PI  
+        }
+    }
+} //fim de classe
+
 
 let forma1, forma2, forma3
 
@@ -89,5 +164,15 @@ catch(erro){
 
 
 //Alterando valor de atributo do OBJETO depois de sua criação
-forma1.base = 'abobrinha'
-console.log(forma1)
+//forma1.base = 'abobrinha'
+forma1.base = 10        //Funciona, é invocado o setter
+forma1.altura = 8.5
+console.log('forma1', {
+    base: forma1.base,
+    altura: forma1.altura,
+    tipo: forma1.tipo 
+})
+//forma1.base = 'fdsf'    //N funcionar
+
+console.log('calcularArea() de forma1 (método):', forma1.calcularArea())
+console.log('area da forma1 (propriedade calculada):', forma1.area)
