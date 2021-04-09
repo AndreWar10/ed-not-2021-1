@@ -1,7 +1,5 @@
 let trocas, comps, pass
 
-
-
 function quickSort(vetor, fnComp, ini = 0, fim = vetor.length - 1) {
     if(fim > ini) { //Condicao de saída das chamadas recursivas
         pass++
