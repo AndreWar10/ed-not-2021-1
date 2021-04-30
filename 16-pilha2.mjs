@@ -1,4 +1,5 @@
 import {Stack} from './lib/Stack.mjs'
+//import {Stack} from './lib/Stack2.mjs'
 
 const texto = 'Socorram-me, subi no ônibus em Marrocos'
 
