@@ -1,5 +1,5 @@
 import {Deque} from './lib/Deque.mjs'
-import {Deque as Deque2} from './lib/Deque.mjs' //Renomeando a classe, para não ter conflito de nome repetido
+//import {Deque as Deque2} from './lib/Deque.mjs' //Renomeando a classe, para não ter conflito de nome repetido
 
 let deque = new Deque()
 //let deque = new Deque2()
